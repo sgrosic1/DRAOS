@@ -35,7 +35,8 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-4.jpg">
+
+        <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
 
             <div class="sidebar-wrapper">
                 <div class="logo">
@@ -117,10 +118,10 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Vozila</a></li>
-                                    <li><a href="#">Rezervacija</a></li>
+                                    <li><a href="@Url.Action("Pretraga", "Home")">Pretraga vozila</a></li>
+                                    <li><a href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Kontakt</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")">Kontakt</a></li>
                                 </ul>
                             </li>
 
@@ -140,7 +141,7 @@
                                 </div>
                                 <div class="content">
                                     
-                                        <img src="Content/img/karta.png" class="img-rounded" width="400" height="400" align="left" />
+                                        <img src="Content/img/karta.PNG" class="img-rounded" width="400" height="400" align="left" />
                                    
                                         <div class="row">
                                            
@@ -162,9 +163,6 @@
                                             <br />
                                             <br />
                                             <br />
-                                            <a href="@Url.Action("Pitanja", "Home")" class="elements" style="font-size:16px ; margin-left:110px">
-                                                <span>Najčešća pitanja</span>
-                                            </a>
                                         </div>
                                 </div>
                             </div>
