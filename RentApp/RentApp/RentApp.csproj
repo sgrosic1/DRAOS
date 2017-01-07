@@ -200,6 +200,7 @@
     <Content Include="Content\img\default-avatar.png" />
     <Content Include="Content\img\favicon.ico" />
     <Content Include="Content\img\loading-bubbles.svg" />
+    <Content Include="Content\img\mapa.png" />
     <Content Include="Content\img\mask.png" />
     <Content Include="Content\img\mercedes.jpg" />
     <Content Include="Content\img\new_logo.png" />

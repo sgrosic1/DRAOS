@@ -50,12 +50,12 @@
                             <p>Home</p>
                         </a>
                     </li>
-                    <li>
+                    @*<li>
                         <a href="Rezervisi">
                             <i class="fa fa-list-ul"></i>
                             <p>Rezervacija</p>
                         </a>
-                    </li>
+                    </li>*@
 
 
                     <li class="active">
@@ -64,12 +64,12 @@
                             <p>Pretraga</p>
                         </a>
                     </li>
-                    <li>
+                    @*<li>
                         <a href="Contact">
                             <i class="fa fa-globe"></i>
                             <p>Kontakt</p>
                         </a>
-                    </li>
+                    </li>*@
 
 
                 </ul>
@@ -127,51 +127,127 @@
                                     <h4 class="title">Unesite filtere za pretragu</h4>
                                 </div>
                                 <div class="content">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                        <div class="column">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Proizvođač</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>KS od:</label>
-                                                    <input type="number" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>do:</label>
-                                                    <input type="number" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label>Tip:</label>
-                                                    <input type="text" class="form-control" disabled placeholder="Tip">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Gorivo:</label>
-                                                    <input type="text" class="form-control" placeholder="Gorivo">
+                                                    <label>Marka automobila</label>
+                                                    
+                                                    @{var listItems = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "BMW", Value="BMW" },
+                                                          new SelectListItem { Text = "Citroen", Value="Citroen" },
+                                                          new SelectListItem { Text = "Audi", Value="Audi" },
+                                                          new SelectListItem { Text = "Porsche", Value="Porsche" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems, "Value", "Text"),new { @class = "form-control" })
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Transmisija:</label>
-                                                    <input type="email" class="form-control" placeholder="Transmisija">
+                                                    <label>Tip automobila</label>
+
+                                                    @{var listItems1 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "Limuzina", Value="Limuzina" },
+                                                          new SelectListItem { Text = "Heč bek", Value="Heč" },
+                                                          new SelectListItem { Text = "Karavan", Value="Karavan" },
+                                                          new SelectListItem { Text = "Kupe", Value="Kupe" },
+                                                          new SelectListItem { Text = "Kabriolet", Value="Kabriolet" },
+                                                          new SelectListItem { Text = "Mini ven", Value="Mini ven" },
+                                                          new SelectListItem { Text = "Dzip", Value="Dzip" },
+                                                          new SelectListItem { Text = "Pick up", Value="Pick up" },
+                                                          new SelectListItem { Text = "Kombi", Value="Kombi" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems1, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Broj sjedišta</label>
+
+                                                    @{var listItems2 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "2", Value="2" },
+                                                          new SelectListItem { Text = "4", Value="4" },
+                                                          new SelectListItem { Text = "5", Value="5" },
+                                                          new SelectListItem { Text = "7", Value="7" },
+                                                          new SelectListItem { Text = "9", Value="9" },
+                                                          new SelectListItem { Text = "12", Value="12" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems2, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Broj vrata</label>
+
+                                                    @{var listItems3 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "3", Value="2" },
+                                                          new SelectListItem { Text = "4", Value="4" },
+                                                          new SelectListItem { Text = "5", Value="5" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems3, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Mjenjač</label>
+
+                                                    @{var listItems4 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "Manuelni", Value="Manuelni" },
+                                                          new SelectListItem { Text = "Automatski", Value="Automatski" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems4, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Klima</label>
+
+                                                    @{var listItems5 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "DA", Value="Da" },
+                                                          new SelectListItem { Text = "NE", Value="Ne" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems5, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Gorivo</label>
+
+                                                    @{var listItems6 = new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem { Text = "Dizel", Value="D" },
+                                                          new SelectListItem { Text = "Benzin", Value="B" },
+                                                          new SelectListItem { Text = "Plin", Value="P" }
+                                                    };
+                                                    }
+                                                    @Html.DropDownList("Automobili", new SelectList(listItems6, "Value", "Text"), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                           
+                                            <div class="footer">
+
+                                                <hr>
+                                                <div class="stats">
+                                                    <button class="btn btn-info btn-fill pull-right"
+                                                            onclick="@("window.location.href='" + @Url.Action("Index", "home") + "'");" style="margin-left:910px">
+                                                        Pretraži
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Pretraži</button>
-                                        <div class="clearfix"></div>
-                                    </form>
+                                       
                                 </div>
                             </div>
                         </div>
