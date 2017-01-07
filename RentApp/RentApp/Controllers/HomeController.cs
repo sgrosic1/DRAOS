@@ -20,6 +20,11 @@ namespace RentApp.Controllers
             return View();
         }
 
+        public ActionResult RezervacijaPretraga()
+        {
+            return View();
+        }
+
         public ActionResult Pretraga()
         {
             return View();
@@ -37,5 +42,8 @@ namespace RentApp.Controllers
 
             return View();
         }
+
+
+
     }
 }
