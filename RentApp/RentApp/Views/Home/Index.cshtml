@@ -56,13 +56,13 @@
 
                 <ul class="nav">
                     <li class="active">
-                        <a href="Index">
+                        <a href="@Url.Action("Index", "Home")">
                             <i class="fa fa-home"></i>
                             <p>Home</p>
                         </a>
                     </li>
                     <li>
-                        <a href="Rezervisi">
+                        <a href="@Url.Action("RezervacijaPretraga", "Home")">
                             <i class="fa fa-list-ul"></i>
                             <p>Rezervacija</p>
                         </a>
@@ -76,20 +76,20 @@
                         </a>
                     </li>*@
                     <li>
-                        <a href="Uvjeti">
+                        <a href="@Url.Action("Uvjeti", "Home")">
                             <i class="fa fa-globe"></i>
                             <p>Opći uvjeti</p>
                         </a>
                     </li>
                     <li>
-                        <a href="Contact">
+                        <a href="@Url.Action("Contact", "Home")">
                             <i class="fa fa-user"></i>
                             <p>Kontakt</p>
                         </a>
                     </li>
                    
                     <li>
-                        <a href="Pitanja">
+                        <a href="@Url.Action("Pitanja", "Home")">
                             <i class="fa fa-question"></i>
                             <p>Najčešća pitanja</p>
                         </a>
@@ -217,7 +217,7 @@
                                                 <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-4 control-label">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
+                                                <button type="submit" onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
                                             </div>
 
                                         </div>
@@ -238,7 +238,7 @@
                                                 <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-4 control-label">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
+                                                <button type="submit" onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
                                             </div>
 
                                         </div>
@@ -259,7 +259,7 @@
                                                 <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-4 control-label">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
+                                                <button type="submit" onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
                                             </div>
 
                                         </div>
@@ -280,7 +280,7 @@
                                                 <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-4 control-label">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
+                                                <button type="submit" onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
                                             </div>
 
                                         </div>
@@ -301,7 +301,7 @@
                                                 <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-4 control-label">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
+                                                <button type="submit" onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:10px;">Rezerviši</button>
                                             </div>
 
                                         </div>

@@ -20,6 +20,16 @@ namespace RentApp.Controllers
             return View();
         }
 
+        public ActionResult Pitanja()
+        {
+            return View();
+        }
+
+        public ActionResult Uvjeti()
+        {
+            return View();
+        }
+
         public ActionResult RezervacijaPretraga()
         {
             return View();
