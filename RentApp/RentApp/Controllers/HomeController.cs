@@ -14,7 +14,12 @@ namespace RentApp.Controllers
 
             return View();
         }
+        public ActionResult IndexDruga()
+        {
+            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
+            return View();
+        }
         public ActionResult Rezervisi()
         {
             return View();

@@ -199,6 +199,7 @@
     <Content Include="Content\img\bmw1.jpg" />
     <Content Include="Content\img\default-avatar.png" />
     <Content Include="Content\img\favicon.ico" />
+    <Content Include="Content\img\karta.PNG" />
     <Content Include="Content\img\loading-bubbles.svg" />
     <Content Include="Content\img\mapa.png" />
     <Content Include="Content\img\mask.png" />
@@ -351,6 +352,7 @@
     <Content Include="Views\Home\Rezervisi.cshtml" />
     <Content Include="Views\Home\Pretraga.cshtml" />
     <Content Include="Views\Home\RezervacijaPretraga.cshtml" />
+    <Content Include="Views\Home\IndexDruga.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
