@@ -44,6 +44,14 @@ namespace RentApp.Controllers
         {
             return View();
         }
+        public ActionResult Pitanja()
+        {
+            return View();
+        }
+        public ActionResult Uvjeti()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
