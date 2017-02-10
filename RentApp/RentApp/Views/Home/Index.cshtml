@@ -38,67 +38,67 @@
 </head>
 <body>
     
-        <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
+    <div class="sidebar" data-color="azure" data-image="Content/img/sidebar1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
 
-            <!--
+        <!--
 
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
             Tip 2: you can also add an image using data-image tag
 
         -->
 
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a class="simple-text">
-                        Rent a car
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="simple-text">
+                    Rent a car
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="@Url.Action("Index", "Home")">
+                        <i class="fa fa-home"></i>
+                        <p style="font-family:'Microsoft Sans Serif'">Home</p>
                     </a>
-                </div>
-
-                <ul class="nav">
-                    <li class="active">
-                        <a href="@Url.Action("Index", "Home")">
-                            <i class="fa fa-home"></i>
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("RezervacijaPretraga", "Home")">
-                            <i class="fa fa-list-ul"></i>
-                            <p>Rezervacija</p>
-                        </a>
-                    </li>
+                </li>
+                <li>
+                    <a href="@Url.Action("RezervacijaPretraga", "Home")">
+                        <i class="fa fa-list-ul"></i>
+                        <p style ="font-family:'Microsoft Sans Serif'">Rezervacija</p>
+                    </a>
+                </li>
 
 
-                    @*<li>
+                @*<li>
                         <a href="Pretraga">
                             <i class="fa fa-search"></i>
                             <p>Pretraga</p>
                         </a>
                     </li>*@
-                    <li>
-                        <a href="@Url.Action("Uvjeti", "Home")">
-                            <i class="fa fa-globe"></i>
-                            <p>Opći uvjeti</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Contact", "Home")">
-                            <i class="fa fa-user"></i>
-                            <p>Kontakt</p>
-                        </a>
-                    </li>
-                   
-                    <li>
-                        <a href="@Url.Action("Pitanja", "Home")">
-                            <i class="fa fa-question"></i>
-                            <p>Najčešća pitanja</p>
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Uvjeti", "Home")">
+                        <i class="fa fa-globe"></i>
+                        <p style="font-family:'Microsoft Sans Serif'">Opći uvjeti</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Contact", "Home")">
+                        <i class="fa fa-user"></i>
+                        <p style="font-family:'Microsoft Sans Serif'">Kontakt</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Pitanja", "Home")">
+                        <i class="fa fa-question"></i>
+                        <p style="font-family:'Microsoft Sans Serif'">Najčešća pitanja</p>
+                    </a>
+                </li>
 
 
-                </ul>
-            </div>
+            </ul>
         </div>
+    </div>
 
         <div class="main-panel">
             <nav class="navbar navbar-default navbar-fixed">
@@ -110,7 +110,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand">Home</a>
+                        <a class="navbar-brand" style="font-family:'Microsoft Sans Serif'">Home</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -129,10 +129,10 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="@Url.Action("Pretraga", "Home")">Pretraga vozila</a></li>
-                                    <li><a href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
+                                    <li><a href="@Url.Action("Pretraga", "Home")" style="font-family: 'Microsoft Sans Serif'">Pretraga vozila</a></li>
+                                    <li><a href="@Url.Action("RezervacijaPretraga", "Home")" style="font-family:'Microsoft Sans Serif'">Rezervacija</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="@Url.Action("Contact", "Home")">Kontakt</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")" style="font-family:'Microsoft Sans Serif'">Kontakt</a></li>
                                 </ul>
                             </li>
                             
@@ -147,25 +147,27 @@
                         <div class="col-md-4">
                             <div class="card" style="width:360px">
                                 <div class="header">
-                                    <h4 class="title">Pretraživanje vozila</h4>
+                                    <h4 class="title" style="font-family: 'Microsoft Sans Serif'">Pretraživanje vozila</h4>
                                 </div>
                                 <div class="content">
                                     <div id='datepicker'>
-                                        <p>Datum polaska:
+                                        <p style="font-family:'Microsoft Sans Serif'">
+                                            Datum polaska:
                                             <input type="date" name="datepicker" style="width:160px" />
-                                            <input type="number" id="sati" style="width:35px" min="1" max="24"/> h
+                                            <input type="number" id="sati" style="width:35px" min="1" max="24" /> h
                                         </p>
-                                        <p> Datum dolaska:
+                                        <p style="font-family:'Microsoft Sans Serif'">
+                                            Datum dolaska:
                                             <input type="date" name="datepicker" style="width:160px" />
-                                            <input type="number" id="sati" style="width:35px" min="1" max="24"/> h
+                                            <input type="number" id="sati" style="width:35px" min="1" max="24" /> h
                                         </p>
                                     </div>
                                     <div class="footer">
 
                                         <hr>
                                         <div class="stats">
-                                            <button class="btn btn-info btn-fill pull-right" style="margin-left:120px" id="pretrazi">Pretraži</button>
-                                            <button type="submit" class="btn btn-info btn-fill pull-right" onclick="@("window.location.href='" + @Url.Action("Pretraga", "Home") + "'");">Dodatni filteri</button>
+                                            <button class="btn btn-info btn-fill pull-right" style="margin-left: 120px; font-family:'Microsoft Sans Serif'" id="pretrazi">Pretraži</button>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right" style="font-family:'Microsoft Sans Serif'" onclick="@("window.location.href='" + @Url.Action("Pretraga", "Home") + "'");">Dodatni filteri</button>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +177,7 @@
                         <div class="col-md-7" id="dostupnaVozila" style="visibility:visible;right:3px;left:80px;" >
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Dostupna vozila</h4>
+                                    <h4 class="title" style="font-family:'Microsoft Sans Serif'">Dostupna vozila</h4>
                                 </div>
                                 <div class="content">
                                     <div style="border-style:solid; border-color:black; border-width:1px;">
@@ -185,14 +187,14 @@
                                             </div>
                                             <div class="col-sm-4" style="margin-left:10px">
                                                 </br>
-                                                <i class="fa fa-tint"></i><span>        Vrsta goriva: benzin</span></br>
-                                                <i class="fa fa-briefcase"></i><span>        3x broj prtljaga</span></br>
-                                                <i class="fa fa-user"></i><span>        4x broj osoba</span></br>
-                                                <i class="fa fa-wrench"></i><span>        7 l/100km</span></br>
-                                                <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
+                                                <i class="fa fa-tint" ></i><span style="font-family:'Microsoft Sans Serif'">        Vrsta goriva: benzin</span></br>
+                                                <i class="fa fa-briefcase"></i><span style="font-family:'Microsoft Sans Serif'">        3x broj prtljaga</span></br>
+                                                <i class="fa fa-user"></i><span style="font-family:'Microsoft Sans Serif'">        4x broj osoba</span></br>
+                                                <i class="fa fa-wrench"></i><span style="font-family:'Microsoft Sans Serif'">        7 l/100km</span></br>
+                                                <i class="fa fa-share"></i><span style="font-family:'Microsoft Sans Serif'">        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-3 control-label" style="margin-left:3px">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:0px;"
+                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom: 10px; margin-top: 85px; margin-right: 0px; font-family:'Microsoft Sans Serif';"
                                                         onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");">
                                                     Rezerviši
                                                 </button>
@@ -210,14 +212,14 @@
                                             </div>
                                             <div class="col-sm-4" style="margin-left:10px">
                                                 </br>
-                                                <i class="fa fa-tint"></i><span>        Vrsta goriva: benzin</span></br>
-                                                <i class="fa fa-briefcase"></i><span>        3x broj prtljaga</span></br>
-                                                <i class="fa fa-user"></i><span>        4x broj osoba</span></br>
-                                                <i class="fa fa-wrench"></i><span>        7 l/100km</span></br>
-                                                <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
+                                                <i class="fa fa-tint"></i><span style="font-family:'Microsoft Sans Serif'">        Vrsta goriva: benzin</span></br>
+                                                <i class="fa fa-briefcase"></i><span style="font-family:'Microsoft Sans Serif'">        3x broj prtljaga</span></br>
+                                                <i class="fa fa-user"></i><span style="font-family:'Microsoft Sans Serif'">        4x broj osoba</span></br>
+                                                <i class="fa fa-wrench"></i><span style="font-family:'Microsoft Sans Serif'">        7 l/100km</span></br>
+                                                <i class="fa fa-share"></i><span style="font-family:'Microsoft Sans Serif'">        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-3 control-label" style="margin-left:3px">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:0px;"
+                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom: 10px; margin-top: 85px; margin-right: 0px; font-family:'Microsoft Sans Serif';"
                                                         onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");">
                                                     Rezerviši
                                                 </button>
@@ -234,14 +236,14 @@
                                             </div>
                                             <div class="col-sm-4" style="margin-left:10px">
                                                 </br>
-                                                <i class="fa fa-tint"></i><span>        Vrsta goriva: benzin</span></br>
-                                                <i class="fa fa-briefcase"></i><span>        3x broj prtljaga</span></br>
-                                                <i class="fa fa-user"></i><span>        4x broj osoba</span></br>
-                                                <i class="fa fa-wrench"></i><span>        7 l/100km</span></br>
-                                                <i class="fa fa-share"></i><span>        Transmisija: Manuelna</span>
+                                                <i class="fa fa-tint"></i><span style="font-family:'Microsoft Sans Serif'">        Vrsta goriva: benzin</span></br>
+                                                <i class="fa fa-briefcase"></i><span style="font-family:'Microsoft Sans Serif'">        3x broj prtljaga</span></br>
+                                                <i class="fa fa-user"></i><span style="font-family:'Microsoft Sans Serif'">        4x broj osoba</span></br>
+                                                <i class="fa fa-wrench"></i><span style="font-family:'Microsoft Sans Serif'">        7 l/100km</span></br>
+                                                <i class="fa fa-share"></i><span style="font-family:'Microsoft Sans Serif'">        Transmisija: Manuelna</span>
                                             </div>
                                             <div class="col-sm-3 control-label" style="margin-left:3px">
-                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:0px;"
+                                                <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom: 10px; margin-top: 85px; margin-right: 0px; font-family:'Microsoft Sans Serif';"
                                                         onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");">
                                                     Rezerviši
                                                 </button>
@@ -253,10 +255,10 @@
                                     <div class="footer">
                                         <hr>
                                         <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" style="pointer-events:none">Prošla</a></li>
-                                            <li class="page-item"><a class="active" style="pointer-events: none; background-color:lightgray;">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="@Url.Action("IndexDruga", "Home")">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="@Url.Action("IndexDruga", "Home")">Slijedeća</a></li>
+                                            <li class="page-item"><a class="page-link" style="pointer-events:none; font-family:'microsoft sans serif';">Prošla</a></li>
+                                            <li class="page-item"><a class="active" style="pointer-events: none; background-color: lightgray; font-family: 'microsoft sans serif';">1</a></li>
+                                            <li class="page-item"><a class="page-link" style="font-family:'Microsoft Sans Serif'" href="@Url.Action("IndexDruga", "Home")">2</a></li>
+                                            <li class="page-item"><a class="page-link" style="font-family:'Microsoft Sans Serif'" href="@Url.Action("IndexDruga", "Home")">Slijedeća</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -267,7 +269,7 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
-                        &copy; 2016 <a>Dženana Bričić, Sabina Grošić, Aida Hasović</a>
+                        &copy; 2016 <a style="font-family:'Microsoft Sans Serif'">Dženana Bričić, Sabina Grošić, Aida Hasović</a>
                     </p>
                 </div>
             </footer>

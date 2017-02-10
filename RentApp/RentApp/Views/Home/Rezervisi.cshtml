@@ -47,13 +47,13 @@
                     <li>
                         <a href="@Url.Action("Index", "Home")">
                             <i class="fa fa-home"></i>
-                            <p>Home</p>
+                            <p style="font-family:'Microsoft Sans Serif'">Home</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="@Url.Action("RezervacijaPretraga", "Home")">
                             <i class="fa fa-list-ul"></i>
-                            <p>Rezervacija</p>
+                            <p style="font-family:'Microsoft Sans Serif'">Rezervacija</p>
                         </a>
                     </li>
 
@@ -67,19 +67,19 @@
                     <li>
                         <a href="@Url.Action("Uvjeti", "Home")">
                             <i class="fa fa-globe"></i>
-                            <p>Opći uvjeti</p>
+                            <p style="font-family:'Microsoft Sans Serif'">Opći uvjeti</p>
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Contact", "Home")">
                             <i class="fa fa-user"></i>
-                            <p>Kontakt</p>
+                            <p style="font-family:'Microsoft Sans Serif'">Kontakt</p>
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Pitanja", "Home")">
                             <i class="fa fa-question"></i>
-                            <p>Najčešća pitanja</p>
+                            <p style="font-family:'Microsoft Sans Serif'">Najčešća pitanja</p>
                         </a>
                     </li>
 
@@ -97,7 +97,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand">Rezervacija</a>
+                        <a class="navbar-brand" style="font-family:'Microsoft Sans Serif'">Rezervacija</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -116,10 +116,10 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Vozila</a></li>
-                                    <li><a href="#">Rezervacija</a></li>
+                                    <li><a href="@Url.Action("Pretraga", "Home")" style="font-family: 'Microsoft Sans Serif'">Pretraga vozila</a></li>
+                                    <li><a href="@Url.Action("RezervacijaPretraga", "Home")" style="font-family:'Microsoft Sans Serif'">Rezervacija</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Kontakt</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")" style="font-family:'Microsoft Sans Serif'">Kontakt</a></li>
                                 </ul>
                             </li>
 
@@ -139,7 +139,7 @@
                                         <div style="border-style: solid; border-color: #9A9A9A; border-width: 1px;">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <img src="~/Content/img/audi3.jpg" class="img-rounded" width="204" height="136" align="left" style="margin-left:5px; margin-bottom:5px;"/>
+                                                    <img src="~/Content/img/audi3.jpg" class="img-rounded" width="204" height="136" align="left" style="margin-left:5px; margin-bottom:5px;" />
                                                 </div>
                                                 <div class="col-sm-4">
                                                     </br>
@@ -152,10 +152,10 @@
                                                 <div class="col-sm-4">
                                                     </br>
 
-                                                     <input type="checkbox" value="" data-toggle="checkbox">
+                                                    <input type="checkbox" value="" data-toggle="checkbox">
                                                     <label>GPS - 15KM</label>
                                                     <br />
-                                                     <input type="checkbox" value="" data-toggle="checkbox">
+                                                    <input type="checkbox" value="" data-toggle="checkbox">
                                                     <label>Dječija sjedalica - 10KM</label>
                                                     <br />
                                                     <input type="checkbox" value="" data-toggle="checkbox">
@@ -163,7 +163,7 @@
 
                                                     <h4><b>Cijena: 500 KM</b></h4>
                                                 </div>
-                                           </div>
+                                            </div>
 
                                         </div>
                                     </form>
@@ -214,11 +214,11 @@
                                             </div>
                                         </div>
 
-                                        
+
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Adresa stanovanja" >
+                                                    <input type="text" class="form-control" placeholder="Adresa stanovanja">
                                                 </div>
                                             </div>
                                         </div>
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
 
 
