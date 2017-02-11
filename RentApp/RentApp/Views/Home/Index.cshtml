@@ -145,15 +145,20 @@
                             <div class="content">
                                 <div id='datepicker'>
                                     <p>
-                                        Datum polaska:
-                                        <input type="date" name="datepicker" style="width:160px" />
-                                        <input type="number" id="sati" style="width:35px" min="1" max="24" /> h
+                                        Datum polaska:                                  
+                                        <input type="date" name="datepicker" id="polazakdatum" style="width:160px" />                                         
+                                        <input type="number" id="satipolazak" style="width:35px" min="1" max="24" /> h
+                                        <div class="text-right" id="error0" style="color:#FF0000"></div>
                                     </p>
+                                    
                                     <p>
                                         Datum dolaska:
-                                        <input type="date" name="datepicker" style="width:160px" />
-                                        <input type="number" id="sati" style="width:35px" min="1" max="24" /> h
+                                        <input type="date" name="datepicker" id="dolazakdatum" style="width:160px" />
+                                        <input type="number" id="satidolazak" style="width:35px" min="1" max="24" /> h
+                                        <div class="text-right" id="error1" style="color:#FF0000"></div>
                                     </p>
+
+                                    
                                 </div>
                                 <div class="footer">
 
@@ -435,8 +440,61 @@
 
         $(document).ready(function () {
             $("#btnPretrazi").click(function () {
-                $("#dostupnaVozila").toggle();
+              
+                var valueDate = document.getElementById('polazakdatum').value;
+                var valueDate1 = document.getElementById('dolazakdatum').value;
+                var valueHour = document.getElementById('satidolazak').value;
+                var valueHour1 = document.getElementById('satipolazak').value;
+
+              
+                if (!valueDate || !valueDate1 || !valueHour || !valueHour1)
+                {
+                   validation(valueDate, valueDate1, valueHour, valueHour1);              
+                    
+                }
+                else
+                {          
+                    document.getElementById("btnPretrazi").disabled = false;
+                    $("#dostupnaVozila").toggle();
+                    
+                }
+
+                      
             });
         });
+
+        function validation(valueDate, valueDate1, valueHour, valueHour1)
+        {
+            
+                document.getElementById("btnPretrazi").disabled = true;
+                var flag = 0; 
+
+                if (!valueDate) {
+                    document.getElementById('polazakdatum').style.borderColor = "red";
+                    document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                    flag = 1; 
+                }
+                if (!valueDate1)
+                {
+                    document.getElementById('dolazakdatum').style.borderColor = "red";
+                    document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                    flag = 1;
+                }
+                if (!valueHour)
+                {
+                    document.getElementById('satidolazak').style.borderColor = "red";
+                    document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                    flag = 1; 
+                }
+                if (!valueHour1)
+                {
+                    document.getElementById('satipolazak').style.borderColor = "red";
+                    document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                    flag = 1; 
+                }    
+                
+            
+        }
+
     </script>
 }
