@@ -38,9 +38,16 @@
 
         <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
 
+            <!--
+
+            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+            Tip 2: you can also add an image using data-image tag
+
+        -->
+
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a class="simple-text">
+                    <a class="simple-text" style="font-family:'Georgia'">
                         Rent a car
                     </a>
                 </div>
@@ -49,42 +56,33 @@
                     <li>
                         <a href="@Url.Action("Index", "Home")">
                             <i class="fa fa-home"></i>
-                            <p>Home</p>
+                            <p style="font-family:'Georgia'">Home</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="@Url.Action("RezervacijaPretraga", "Home")">
                             <i class="fa fa-list-ul"></i>
-                            <p>Rezervacija</p>
+                            <p style="font-family:'Georgia'">Rezervacija</p>
                         </a>
                     </li>
-
-
-                    @*<li>
-                            <a href="Pretraga">
-                                <i class="fa fa-search"></i>
-                                <p>Pretraga</p>
-                            </a>
-                        </li>*@
-
 
                     <li>
                         <a href="@Url.Action("Uvjeti", "Home")">
                             <i class="fa fa-globe"></i>
-                            <p>Opći uvjeti</p>
+                            <p style="font-family:'Georgia'">Opći uvjeti</p>
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Contact", "Home")">
                             <i class="fa fa-user"></i>
-                            <p>Kontakt</p>
+                            <p style="font-family:'Georgia'">Kontakt</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="@Url.Action("Pitanja", "Home")">
                             <i class="fa fa-question"></i>
-                            <p>Najčešća pitanja</p>
+                            <p style="font-family:'Georgia'">Najčešća pitanja</p>
                         </a>
                     </li>
 
@@ -103,7 +101,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand">Rezervacija</a>
+                        <a class="navbar-brand" style="font-family:'Georgia'">Rezervacija</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -117,15 +115,15 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family:'Georgia'">
                                     Pretraga
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Vozila</a></li>
-                                    <li><a href="#">Rezervacija</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Pretraga", "Home")">Pretraga vozila</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Kontakt</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Contact", "Home")">Kontakt</a></li>
                                 </ul>
                             </li>
 
@@ -147,7 +145,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Broj rezervacije</label>
+                                                <label style="font-family:'Georgia'">Broj rezervacije</label>
                                                 <input id="brojRezervacije" type="number" class="form-control" onkeypress="validateInputBrojRegistracije(this.value)">
                                                 <div class="text-right" id="error0" style="color:#FF0000"></div>
                                             </div>
@@ -157,7 +155,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Email adresa</label>
+                                                <label style="font-family:'Georgia'">Email adresa</label>
                                                 <input type="email" id="email" class="form-control" placeholder="someone@example.com" onkeypress="validateInputEmail(this.value)">
                                                 <div class="text-right" id="error1" style="color:#FF0000"></div>
                                             </div>
@@ -184,7 +182,7 @@
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Detalji o rezervaciji</h4>
+                                        <h4 class="title" style="font-family:'Georgia'">Detalji o rezervaciji</h4>
                                     </div>
                                     <div class="content">
 
@@ -203,23 +201,23 @@
                                                                             </div>
                                                                             <div class="col-sm-4">
                                                                                 </br>
-                                                                                <i class="fa fa-tint"></i><span style="color: #9A9A9A; font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">        Vrsta goriva: benzin</span></br>
-                                                                                <i class="fa fa-briefcase"></i><span style="color: #9A9A9A; font-family: Helvetica Neue ,helvetica,arial,sans-serif;">        3x broj prtljaga</span></br>
-                                                                                <i class="fa fa-user"></i><span style="color: #9A9A9A; font-family: Helvetica Neue ,helvetica,arial,sans-serif;">        4x broj osoba</span></br>
-                                                                                <i class="fa fa-wrench"></i><span style="color: #9A9A9A; font-family: Helvetica Neue ,helvetica,arial,sans-serif;">        7 l/100km</span></br>
-                                                                                <i class="fa fa-share"></i><span style="color: #9A9A9A; font-family: Helvetica Neue ,helvetica,arial,sans-serif;">        Transmisija: Manuelna</span>
+                                                                                <i class="fa fa-tint"></i><span style="color: #9A9A9A; font-family: Georgia;">        Vrsta goriva: benzin</span></br>
+                                                                                <i class="fa fa-briefcase"></i><span style="color: #9A9A9A; font-family: Georgia;">        3x broj prtljaga</span></br>
+                                                                                <i class="fa fa-user"></i><span style="color: #9A9A9A; font-family: Georgia;">        4x broj osoba</span></br>
+                                                                                <i class="fa fa-wrench"></i><span style="color: #9A9A9A; font-family: Georgia;">        7 l/100km</span></br>
+                                                                                <i class="fa fa-share"></i><span style="color: #9A9A9A; font-family: Georgia;">        Transmisija: Manuelna</span>
                                                                             </div>
                                                                             <div class="col-sm-4">
                                                                                 </br>
 
                                                                                 <input id="1" type="checkbox" value="" data-toggle="checkbox" disabled checked="checked">
-                                                                                <label>GPS - 15KM</label>
+                                                                                <label style="font-family:'Georgia'">GPS - 15KM</label>
                                                                                 <br />
                                                                                 <input id="2" type="checkbox" value="" data-toggle="checkbox" disabled>
-                                                                                <label>Dječija sjedalica - 10KM</label>
+                                                                                <label style="font-family:'Georgia'">Dječija sjedalica - 10KM</label>
                                                                                 <br />
                                                                                 <input id="3" type="checkbox" value="" data-toggle="checkbox" disabled>
-                                                                                <label>Zimska oprema - 20KM</label>
+                                                                                <label style="font-family:'Georgia'">Zimska oprema - 20KM</label>
 
 
 
@@ -238,20 +236,20 @@
 
                                                         <div class="card">
                                                             <div class="header">
-                                                                <h4 class="title">Podaci</h4>
+                                                                <h4 class="title" style="font-family:'Georgia'">Podaci</h4>
                                                             </div>
                                                             <div class="content">
                                                                 <form>
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label>Ime</label>
+                                                                                <label style="font-family:'Georgia'">Ime</label>
                                                                                 <input type="text" value="Ime" id="ime" disabled class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label>Prezime</label>
+                                                                                <label style="font-family:'Georgia'">Prezime</label>
                                                                                 <input type="text" value="Prezime" id="prezime" disabled class="form-control">
                                                                             </div>
                                                                         </div>
@@ -260,17 +258,17 @@
                                                                     <div class="row">
                                                                         <div class="col-md-5">
                                                                             <div class="form-group">
-                                                                                <input type="text" value="Comtrade d.o.o." id="kompanija" class="form-control" disabled placeholder="Company">
+                                                                                <input type="text" value="Comtrade d.o.o." style="font-family:'Georgia'" id="kompanija" class="form-control" disabled placeholder="Company">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="brojTelefona" disabled placeholder="Broj telefona">
+                                                                                <input type="text" class="form-control" id="brojTelefona" style="font-family:'Georgia'" disabled placeholder="Broj telefona">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <input type="email" class="form-control" id="email" disabled placeholder="Email adresa">
+                                                                                <input type="email" class="form-control" style="font-family:'Georgia'" id="email" disabled placeholder="Email adresa">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -279,7 +277,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="adresa" disabled placeholder="Adresa stanovanja">
+                                                                                <input type="text" class="form-control" style="font-family:'Georgia'" id="adresa" disabled placeholder="Adresa stanovanja">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -287,36 +285,36 @@
                                                                     <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="grad" disabled placeholder="Grad">
+                                                                                <input type="text" class="form-control" style="font-family:'Georgia'" id="grad" disabled placeholder="Grad">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="drzava" disabled placeholder="Država">
+                                                                                <input type="text" class="form-control" style="font-family:'Georgia'" id="drzava" disabled placeholder="Država">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <input type="number" class="form-control" id="ptt" disabled placeholder="Poštanski broj">
+                                                                                <input type="number" class="form-control" style="font-family:'Georgia'" id="ptt" disabled placeholder="Poštanski broj">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <label>Broj vozačke dozvole</label>
+                                                                                <label style="font-family:'Georgia'">Broj vozačke dozvole</label>
                                                                                 <input type="text" disabled id="brojVozacke" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <label>Datum polaska</label>
+                                                                                <label style="font-family:'Georgia'">Datum polaska</label>
                                                                                 <input id="polazak" type="date" class="form-control" disabled placeholder="Datum polaska">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <label>Datum dolaska</label>
+                                                                                <label style="font-family:'Georgia'">Datum dolaska</label>
                                                                                 <input id="dolazak" type="date" class="form-control" disabled value="Datum dolaska">
                                                                             </div>
                                                                         </div>
@@ -325,13 +323,13 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label>Komentar</label>
+                                                                                <label style="font-family:'Georgia'">Komentar</label>
                                                                                 <textarea rows="5" class="form-control" id="komentar" disabled placeholder="Vaš komentar"></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
 
-                                                                    <h4><b>Ukupna cijena za odabrani period: 250KM</b></h4>
+                                                                    <h4><b style="font-family:'Georgia'">Ukupna cijena za odabrani period: 250KM</b></h4>
 
                                                                     <h4><b></b></h4>
                                                                     <div class="clearfix"></div>
@@ -343,27 +341,27 @@
                                                 </div>
 
                                             </div>
-                                            <input type="button" id="btnIzmijeni" class="btn btn-info btn-fill pull-right" value="Izmijeni">
-                                            <input type="button" id="btnSacuvaj" class="btn btn-info btn-fill pull-right" value="Sacuvaj" disabled>
-                                            <button id="myBtn" type="button" style="background-color: #FA8072; border: 2px solid #FA8072; float: right; margin-right: 15px" class=" btn btn-info btn-fill">Otkaži rezervaciju</button>
+                                            <input type="button" id="btnIzmijeni" class="btn btn-info btn-fill pull-right" style="font-family:'Georgia'" value="Izmijeni">
+                                            <input type="button" id="btnSacuvaj" class="btn btn-info btn-fill pull-right" style="font-family:'Georgia'" value="Sacuvaj" disabled>
+                                            <button id="myBtn" type="button" style="background-color: #FA8072; border: 2px solid #FA8072; float: right; margin-right: 15px;font-family:'Georgia';" class=" btn btn-info btn-fill">Otkaži rezervaciju</button>
 
                                             <!-- The Modal -->
                                             @*<div id="myModal" class="modal">
 
-                                                    <!-- Modal content -->
-                                                    <div class="modal-content" style="width: 400px; height: 200px; margin-top: 150px; margin-left: 450px; background-color: #cfd2d6;">
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        <p style="text-align:center; font-family: helvetica neue,helvetica,arial,sans-serif;">Jeste li sigurni da želite obrisati rezervaciju?</p>
-                                                        <!--span class="closeModal" style="width:20px;">&times;</!--span-->
-                                                        <br />
-                                                        <br />
-                                                        <button type="button" id="closeModal" style="width: 100px; height: 30px; margin-left: 45px; font-family: helvetica neue,helvetica,arial,sans-serif;">Odustani</button>
-                                                        <button type="button" id="closeModal2" style="width: 100px; height: 30px; margin-left: 100px; font-family: helvetica neue,helvetica,arial,sans-serif;">Prihvati</button>
-                                                    </div>
+                                                <!-- Modal content -->
+                                                <div class="modal-content" style="width: 400px; height: 200px; margin-top: 150px; margin-left: 450px; background-color: #cfd2d6;">
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <p style="text-align:center; font-family: helvetica neue,helvetica,arial,sans-serif;">Jeste li sigurni da želite obrisati rezervaciju?</p>
+                                                    <!--span class="closeModal" style="width:20px;">&times;</!--span-->
+                                                    <br />
+                                                    <br />
+                                                    <button type="button" id="closeModal" style="width: 100px; height: 30px; margin-left: 45px; font-family: helvetica neue,helvetica,arial,sans-serif;">Odustani</button>
+                                                    <button type="button" id="closeModal2" style="width: 100px; height: 30px; margin-left: 100px; font-family: helvetica neue,helvetica,arial,sans-serif;">Prihvati</button>
+                                                </div>
 
-                                                </div>*@
+                                            </div>*@
 
                                         </div>
 
@@ -393,7 +391,7 @@
         <div class="container-fluid">
 
             <p class="copyright pull-right">
-                &copy; 2016 <a>Dženana Bričić, Sabina Grošić, Aida Hasović</a>
+                &copy; 2016 <a style="font-family:Georgia">Dženana Bričić, Sabina Grošić, Aida Hasović</a>
             </p>
         </div>
     </footer>
