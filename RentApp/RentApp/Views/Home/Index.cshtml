@@ -133,7 +133,6 @@
                 </div>
             </div>
         </nav>
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -144,17 +143,18 @@
                             </div>
                             <div class="content">
                                 <div id='datepicker'>
+                                   
                                     <p style="font-family: Georgia;">
                                         Datum polaska:
-                                        <input type="date" name="datepicker" id="polazakdatum" style="width:160px" />
-                                        <input type="number" id="satipolazak" style="width:35px" min="1" max="24" /> h
+                                        <input type="date" name="datepicker" id="polazakdatum" style="width:160px " onkeyup="validateInputPolazakDatum(this.value)" />
+                                        <input type="number" id="satipolazak" style="width:35px" min="1" max="24" onkeyup="validateInputSatiPolazak(this.value)" /> h
                                         <div class="text-right" id="error0" style="color:#FF0000"></div>
                                     </p>
 
                                     <p style="font-family: Georgia;">
                                         Datum dolaska:
-                                        <input type="date" name="datepicker" id="dolazakdatum" style="width:160px" />
-                                        <input type="number" id="satidolazak" style="width:35px" min="1" max="24" /> h
+                                        <input type="date" name="datepicker" id="dolazakdatum" style="width:160px" onkeyup="validateInputDolazakDatum(this.value)" />
+                                        <input type="number" id="satidolazak" style="width:35px" min="1" max="24" onkeyup="validateInputSatiDolazak(this.value)" /> h
                                         <div class="text-right" id="error1" style="color:#FF0000"></div>
                                     </p>
 
@@ -178,9 +178,10 @@
                                         @{var listItems = new List<SelectListItem>
                                                     {
                                                           new SelectListItem { Text = "BMW", Value="BMW" },
-                                                          new SelectListItem { Text = "Citroen", Value="Citroen" },
+                                                          new SelectListItem { Text = "Mercedes", Value="Mercedes" },
                                                           new SelectListItem { Text = "Audi", Value="Audi" },
-                                                          new SelectListItem { Text = "Porsche", Value="Porsche" }
+                                                          new SelectListItem { Text = "Opel", Value="Opel" },
+                                                          new SelectListItem { Text = "Peugeot", Value="Peugeot" }
                                                     };
                                         }
                                         @Html.DropDownList("Automobili", new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
@@ -196,7 +197,7 @@
                                                           new SelectListItem { Text = "Karavan klasa", Value="Karavan klasa" },
                                                           new SelectListItem { Text = "Premijum klasa", Value="Premijum klasa" },
                                                           new SelectListItem { Text = "Mini van", Value="Mini van" },
-                                                          new SelectListItem { Text = "Dzip", Value="Dzip" },
+                                                          new SelectListItem { Text = "Džip", Value="Dzip" },
                                                           new SelectListItem { Text = "Kombi", Value="Kombi" }
                                                     };
                                         }
@@ -409,91 +410,136 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="Scripts/demo.js"></script>
 
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-        }, {
-            type: 'info',
-            timer: 4000
-        });
-    });
-
-
-
-</script>
-
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#btn").click(function () {
-                $("#Create").toggle();
-            });
-        });
-
-        $(document).ready(function () {
             $("#btnPretrazi").click(function () {
-              
+
                 var valueDate = document.getElementById('polazakdatum').value;
                 var valueDate1 = document.getElementById('dolazakdatum').value;
                 var valueHour = document.getElementById('satidolazak').value;
                 var valueHour1 = document.getElementById('satipolazak').value;
 
-              
-                if (!valueDate || !valueDate1 || !valueHour || !valueHour1)
-                {
-                   validation(valueDate, valueDate1, valueHour, valueHour1);              
-                    
+
+                if (!valueDate || !valueDate1 || !valueHour || !valueHour1) {
+                    validation(valueDate, valueDate1, valueHour, valueHour1);
+
                 }
-                else
-                {          
+                else {
                     document.getElementById("btnPretrazi").disabled = false;
                     $("#dostupnaVozila").toggle();
-                    
-                }
 
-                      
+                }
             });
+
         });
 
-        function validation(valueDate, valueDate1, valueHour, valueHour1)
-        {
-            
-                document.getElementById("btnPretrazi").disabled = true;
-                var flag = 0; 
+        function validation(valueDate, valueDate1, valueHour, valueHour1) {
 
-                if (!valueDate) {
-                    document.getElementById('polazakdatum').style.borderColor = "red";
-                    document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
-                    flag = 1; 
-                }
-                if (!valueDate1)
-                {
-                    document.getElementById('dolazakdatum').style.borderColor = "red";
-                    document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
-                    flag = 1;
-                }
-                if (!valueHour)
-                {
-                    document.getElementById('satidolazak').style.borderColor = "red";
-                    document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
-                    flag = 1; 
-                }
-                if (!valueHour1)
-                {
-                    document.getElementById('satipolazak').style.borderColor = "red";
-                    document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
-                    flag = 1; 
-                }    
-                
-            
+            document.getElementById("btnPretrazi").disabled = true;
+            var flag = 0;
+
+            if (!valueDate) {
+                document.getElementById('polazakdatum').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('polazakdatum').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+            if (!valueDate1) {
+                document.getElementById('dolazakdatum').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('dolazakdatum').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+            if (!valueHour) {
+                document.getElementById('satidolazak').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('satidolazak').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+            if (!valueHour1) {
+                document.getElementById('satipolazak').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('satipolazak').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+        }
+
+
+
+        function validateInputPolazakDatum(polazakdatum) {
+            if (!polazakdatum) {
+                document.getElementById('polazakdatum').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                document.getElementById("btnPretrazi").disabled = true;
+                flag = 1;
+            }
+            else {
+                document.getElementById('polazakdatum').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+        }
+        function validateInputSatiPolazak(satipolazak) {
+
+            if (!satipolazak) {
+                document.getElementById('satipolazak').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
+                document.getElementById("btnPretrazi").disabled = true;
+                flag = 1;
+            }
+
+            else {
+                document.getElementById('satipolazak').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+        }
+
+        function validateInputDolazakDatum(dolazakdatum) {
+            if (!dolazakdatum) {
+                document.getElementById('dolazakdatum').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                document.getElementById("btnPretrazi").disabled = true;
+                flag = 1;
+            }
+            else {
+                document.getElementById('dolazakdatum').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
+        }
+        function validateInputSatiDolazak(satidolazak) {
+
+            if (!satidolazak) {
+                document.getElementById('satidolazak').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
+                document.getElementById("btnPretrazi").disabled = true;
+                flag = 1;
+            }
+
+            else {
+                document.getElementById('satidolazak').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnPretrazi").disabled = false;
+            }
         }
 
     </script>

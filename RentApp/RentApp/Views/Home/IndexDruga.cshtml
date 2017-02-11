@@ -173,9 +173,10 @@
                                         @{var listItems = new List<SelectListItem>
                                                     {
                                                           new SelectListItem { Text = "BMW", Value="BMW" },
-                                                          new SelectListItem { Text = "Citroen", Value="Citroen" },
+                                                          new SelectListItem { Text = "Mercedes", Value="Mercedes" },
                                                           new SelectListItem { Text = "Audi", Value="Audi" },
-                                                          new SelectListItem { Text = "Porsche", Value="Porsche" }
+                                                          new SelectListItem { Text = "Opel", Value="Opel" },
+                                                          new SelectListItem { Text = "Peugeot", Value="Peugeot" }
                                                     };
                                         }
                                         @Html.DropDownList("Automobili", new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
@@ -191,7 +192,7 @@
                                                           new SelectListItem { Text = "Kupe", Value="Kupe" },
                                                           new SelectListItem { Text = "Kabriolet", Value="Kabriolet" },
                                                           new SelectListItem { Text = "Mini ven", Value="Mini ven" },
-                                                          new SelectListItem { Text = "Dzip", Value="Dzip" },
+                                                          new SelectListItem { Text = "Džip", Value="Dzip" },
                                                           new SelectListItem { Text = "Pick up", Value="Pick up" },
                                                           new SelectListItem { Text = "Kombi", Value="Kombi" }
                                                     };
