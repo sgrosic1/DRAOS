@@ -114,6 +114,27 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" style="font-family:'Georgia'">Rezervacija</a>
+                        <a class="navbar-brand" id="help" style="font-family:'Georgia'" data-toggle="modal" data-target="#myModal2" onmouseover="show_modal2()" onmouseout="hide_modal2()"><i class="fa fa-question"></i>Pomoć</a>
+
+                        <div class="content">
+                            <div id="myModal2" class="modal" role="dialog" style="position: fixed; width: 100%; height: 100%; background-color:transparent; ">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="width: 500px; height: 270px; background-color: rgb(236, 242, 249)">
+                                        <!-- dialog body -->
+                                        <div class="modal-body">
+                                            <br />- Forma za pretragu izvršene rezervacije.
+                                            <br />- Unosite broj rezervacije koji ste dobili nakon izvršenja rezervacije.
+                                            <br />- Unosite email adresu kojom ste izvršili rezervaciju.
+                                            <br />- Nakon unosa, kliknite na 'Pretraži'.
+                                            <br />- Prikazaće vam se podaci o rezervacije, gdje iste možete mijenjati ili eventualno otkazati rezervaciju.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <br /><br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -125,7 +146,7 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Pretraga", "Home")">Pretraga vozila</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Home", "Home")">Pretraga vozila</a></li>
                                     <li><a style="font-family:'Georgia'" href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
                                     <li class="divider"></li>
                                     <li><a style="font-family:'Georgia'" href="@Url.Action("Contact", "Home")">Kontakt</a></li>
@@ -364,8 +385,8 @@
                                             <input type="button" id="btnSacuvaj" class="btn btn-info btn-fill pull-right" style="font-family: 'Georgia'; width:100px; margin-left: 5px; margin-right: 5px;" value="Sačuvaj" disabled>
                                             <button id="myBtn" type="button" style="background-color: #FA8072; border: 2px solid #FA8072; float: right; margin-right: 10px; font-family:'Georgia';" class=" btn btn-info btn-fill" data-toggle="modal" data-target="#myModal" onclick="show_modal()" >Otkaži rezervaciju</button> <!-- onclick="show_alert()"-->
 
-                                            <div id="myModal" class="modal" role="dialog" style="position:fixed; width:100%; height:100%;">
-                                                <div class="modal-dialog" style="width:1000px;height:500px;">
+                                            <div id="myModal" class="modal" role="dialog" style="position: fixed; width: 100%; height: 100%; background-color:none">
+                                                <div class="modal-dialog" style="width:1000px;height:200px;">
                                                     <div class="modal-content" style="width:400px;height:150px;">
                                                         <!-- dialog body -->
                                                         <div class="modal-body">
@@ -374,8 +395,8 @@
                                                         <!-- dialog buttons -->
                                                         <div class="modal-footer">
                                                             <!--button type="button" class="btn btn-primary" id="modalOK" onclick="hide_modal()">OK</!--button-->
-                                                            <a class="btn btn-primary" href="@Url.Action("RezervacijaPretraga", "Home")" style="background-color: #FA8072; border: 2px solid #FA8072; ">Odustani</a>
-                                                            <a class="btn btn-primary" href="@Url.Action("RezervacijaPretraga", "Home")" style="background-color: #1DC7EA; border: 2px solid #FA8072; ">OK</a>
+                                                            <a class="btn btn-primary" onclick="hide_modal()" style="background-color: #FA8072; border: 2px solid #FA8072;width:100px;"><i class="fa fa-mail-reply"></i>Odustani</a>
+                                                            <a class="btn btn-primary" href="@Url.Action("RezervacijaPretraga", "Home")" style="background-color: #1DC7EA; border: 2px solid #1DC7EA; width: 100px; "><i class="fa fa-check"></i>OK</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -473,7 +494,15 @@
     function hide_modal() {
         $("#myModal").hide();
         document.getElementById(Sakrij).style.display = 'none';
-        $("#Sakrij").hide();
+    }
+</script>
+
+<script type="text/javascript">
+    function show_modal2() {
+        $("#myModal2").show();
+    }
+    function hide_modal2() {
+        $("#myModal2").hide();
     }
 </script>
 

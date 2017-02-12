@@ -111,7 +111,7 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Pretraga", "Home")">Pretraga vozila</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Home", "Home")">Pretraga vozila</a></li>
                                     <li><a style="font-family:'Georgia'" href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
                                     <li class="divider"></li>
                                     <li><a style="font-family:'Georgia'" href="@Url.Action("Contact", "Home")">Kontakt</a></li>
@@ -289,7 +289,7 @@
                                                 <div class="modal-content" style="width:400px;height:150px;">
                                                     <!-- dialog body -->
                                                     <div class="modal-body">
-                                                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Uspejsno ste rezervisali automobil! Vas kod za pretragu ili otkazivanje rezervacije je <b>1234</b>!
+                                                        <i class="fa fa-certificate" aria-hidden="true"></i> Uspješno ste rezervisali vozilo! Vaš kod za pretragu ili otkazivanje rezervacije je <b>1234</b>!
                                                     </div>
                                                     <!-- dialog buttons -->
                                                     <div class="modal-footer">
@@ -384,6 +384,11 @@
                 if (!ime || !prezime || !kompanija || !brojTelefona || !email || !grad || !brojVozacke || !polazak || !dolazak) {
                     validation(ime, prezime, kompanija, brojTelefona, email, grad, brojVozacke, polazak, dolazak);
 
+                }
+                else if (polazak > dolazak) {
+                    document.getElementById('dolazak').style.borderColor = "red";
+                    document.getElementById("error8").innerHTML = "Datum dolaska ne moze biti manji od datuma polaska!";
+                    flag = 1;
                 }
                 else {
                     sessionStorage.setItem('ime',document.getElementById('ime').value);
