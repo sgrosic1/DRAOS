@@ -333,6 +333,6 @@ C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\bin\ko\System.Spatial.resources.d
 C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\bin\ru\System.Spatial.resources.dll
 C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\obj\Debug\RentApp.csprojResolveAssemblyReference.cache
 C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\obj\Debug\RentApp.dll
 C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\obj\Debug\RentApp.pdb
+C:\Users\dzenana\Desktop\DRAOS\RentApp\RentApp\obj\Debug\RentApp.csprojResolveAssemblyReference.cache

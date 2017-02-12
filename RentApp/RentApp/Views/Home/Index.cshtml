@@ -139,15 +139,15 @@
                                    
                                     <p style="font-family: Georgia;">
                                         Datum polaska:
-                                        <input type="date" name="datepicker" id="polazakdatum" style="width:160px " onkeyup="validateInputPolazakDatum(this.value)" />
-                                        <input type="number" id="satipolazak" style="width:35px" min="1" max="24" onkeyup="validateInputSatiPolazak(this.value)" /> h
+                                        <input type="date" name="datepicker" id="polazakdatum" style="width:160px " onchange="validateInputPolazakDatum()" />
+                                        <input type="number" id="satipolazak" style="width:35px" min="1" max="24" onchange="validateInputSatiPolazak()" /> h
                                         <div class="text-right" id="error0" style="color:#FF0000"></div>
                                     </p>
 
                                     <p style="font-family: Georgia;">
                                         Datum dolaska:
-                                        <input type="date" name="datepicker" id="dolazakdatum" style="width:160px" onkeyup="validateInputDolazakDatum(this.value)" />
-                                        <input type="number" id="satidolazak" style="width:35px" min="1" max="24" onkeyup="validateInputSatiDolazak(this.value)" /> h
+                                        <input type="date" name="datepicker" id="dolazakdatum" style="width:160px" onchange="validateInputDolazakDatum()" />
+                                        <input type="number" id="satidolazak" style="width:35px" min="1" max="24" onchange="validateInputSatiDolazak()" /> h
                                         <div class="text-right" id="error1" style="color:#FF0000"></div>
                                     </p>
 
@@ -361,8 +361,8 @@
                                     <ul class="pagination">
                                         <li class="page-item"><a class="page-link" style="pointer-events:none">Prošla</a></li>
                                         <li class="page-item"><a class="active" style="pointer-events: none; background-color:lightgray;">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="@Url.Action("IndexDruga", "Home")">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="@Url.Action("IndexDruga", "Home")">Slijedeća</a></li>
+                                        @*<li class="page-item"><a class="page-link" href="@Url.Action("IndexDruga", "Home")">2</a></li>*@
+                                        <li class="page-item"><a class="page-link"  href="#">Slijedeća</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -454,9 +454,16 @@
                     validation(valueDate, valueDate1, valueHour, valueHour1);
 
                 }
-                else {
-                    document.getElementById("btnPretrazi").disabled = false;
+                else if (valueDate > valueDate1)
+                {
+                    document.getElementById('dolazakdatum').style.borderColor = "red";
+                    document.getElementById("error1").innerHTML = "Datum dolaska ne moze biti manji od datuma polaska!";
+                    flag = 1;
+                }
+                else if (valueDate && valueDate1 && valueHour && valueHour1) {
+
                     $("#dostupnaVozila").toggle();
+                    document.getElementById("btnPretrazi").disabled = true;
 
                 }
             });
@@ -512,7 +519,9 @@
 
 
 
-    function validateInputPolazakDatum(polazakdatum) {
+    function validateInputPolazakDatum() {
+        var polazakdatum = document.getElementById('polazakdatum').value;
+       
         if (!polazakdatum) {
             document.getElementById('polazakdatum').style.borderColor = "red";
             document.getElementById("error0").innerHTML = "Datum i vrijeme polaska ne mogu biti prazna polja!";
@@ -525,7 +534,9 @@
             document.getElementById("btnPretrazi").disabled = false;
         }
     }
-    function validateInputSatiPolazak(satipolazak) {
+    function validateInputSatiPolazak() {
+
+        var satipolazak = document.getElementById('satipolazak').value;
 
         if (!satipolazak) {
             document.getElementById('satipolazak').style.borderColor = "red";
@@ -541,7 +552,11 @@
         }
     }
 
-    function validateInputDolazakDatum(dolazakdatum) {
+    function validateInputDolazakDatum() {
+
+       
+        var dolazakdatum = document.getElementById('dolazakdatum').value;
+       
         if (!dolazakdatum) {
             document.getElementById('dolazakdatum').style.borderColor = "red";
             document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
@@ -556,6 +571,9 @@
     }
     function validateInputSatiDolazak(satidolazak) {
 
+      
+        var satidolazak = document.getElementById('satidolazak').value;
+      
         if (!satidolazak) {
             document.getElementById('satidolazak').style.borderColor = "red";
             document.getElementById("error1").innerHTML = "Datum i vrijeme dolaska ne mogu biti prazna polja!";
