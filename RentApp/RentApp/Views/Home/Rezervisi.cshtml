@@ -182,14 +182,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label style="font-family:Georgia">Ime</label>
-                                                    <input type="text" id="ime" class="form-control" onkeypress="validateIme(this.value)">
+                                                    <input type="text" id="ime" class="form-control" onkeyup="validateIme(this.value)">
                                                     <div class="text-right" id="error0" style="color:#FF0000"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label style="font-family:Georgia">Prezime</label>
-                                                    <input type="text" id="prezime" class="form-control" onkeypress="validatePrezime(this.value)">
+                                                    <input type="text" id="prezime" class="form-control" onkeyup="validatePrezime(this.value)">
                                                     <div class="text-right" id="error1" style="color:#FF0000"></div>
                                                 </div>
                                             </div>
@@ -198,19 +198,19 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <input type="text" id="kompanija" class="form-control" style="font-family:Georgia" placeholder="Company" onkeypress="validateKompanija(this.value)">
+                                                    <input type="text" id="kompanija" class="form-control" style="font-family:Georgia" placeholder="Company" onkeyup="validateKompanija(this.value)">
                                                     <div class="text-right" id="error2" style="color:#FF0000"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <input type="text" id="brojTelefona" class="form-control" style="font-family:Georgia" placeholder="Broj telefona" onkeypress="validateBrojTelefona(this.value)">
+                                                    <input type="text" id="brojTelefona" class="form-control" style="font-family:Georgia" placeholder="Broj telefona" onkeyup="validateBrojTelefona(this.value)">
                                                     <div class="text-right" id="error3" style="color:#FF0000"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <input type="email" id="email" class="form-control" style="font-family:Georgia" placeholder="Email adresa" onkeypress="validateEmail(this.value)">
+                                                    <input type="email" id="email" class="form-control" style="font-family:Georgia" placeholder="Email adresa" onkeyup="validateEmail(this.value)">
                                                     <div class="text-right" id="error4" style="color:#FF0000"></div>
                                                 </div>
                                             </div>
@@ -228,7 +228,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" id="grad" class="form-control" style="font-family:Georgia" placeholder="Grad" onkeypress="validateGrad(this.value)">
+                                                    <input type="text" id="grad" class="form-control" style="font-family:Georgia" placeholder="Grad" onkeyup="validateGrad(this.value)">
                                                     <div class="text-right" id="error5" style="color: #FF0000; font-family: Georgia;"></div>
                                                 </div>
                                             </div>
@@ -247,7 +247,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label style="font-family:Georgia">Broj vozačke dozvole</label>
-                                                    <input type="text" id="brojVozacke" class="form-control" style="font-family:Georgia" onkeypress="validateBrojVozacke(this.value)">
+                                                    <input type="text" id="brojVozacke" class="form-control" style="font-family:Georgia" onkeyup="validateBrojVozacke(this.value)">
                                                     <div class="text-right" id="error6" style="color: #FF0000; font-family: Georgia;"></div>
                                                 </div>
                                             </div>
@@ -294,6 +294,7 @@
                                                     <!-- dialog buttons -->
                                                     <div class="modal-footer">
                                                         <!--button type="button" class="btn btn-primary" id="modalOK" onclick="hide_modal()">OK</!--button-->
+
                                                         <a class="btn btn-primary" href="@Url.Action("RezervacijaPretraga", "Home")" style="background-color: #1DC7EA; border: 2px solid #FA8072; ">OK</a>
                                                     </div>
                                                 </div>
