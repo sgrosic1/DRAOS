@@ -207,7 +207,7 @@
                                                           new SelectListItem { Text = "Peugeot", Value="Peugeot" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems, "Value", "Text"), new { @class = "form-control", @onchange = "markaAutomobila(this.value)" })
 
                                         <br />
                                         <label style="font-family: Georgia;">Tip automobila</label>
@@ -224,7 +224,7 @@
                                                           new SelectListItem { Text = "Kombi", Value="Kombi" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems1, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems1, "Value", "Text"), new { @class = "form-control", @onchange = "tipAutomobila(this.value)" })
 
                                         <br />
 
@@ -240,7 +240,7 @@
                                                           new SelectListItem { Text = "12", Value="12" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems2, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems2, "Value", "Text"), new { @class = "form-control" , @onchange = "brojSjedista(this.value)" })
 
                                         <br />
 
@@ -253,7 +253,7 @@
                                                           new SelectListItem { Text = "5", Value="5" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems3, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems3, "Value", "Text"), new { @class = "form-control", @onchange = "brojVrata(this.value)" })
 
                                         <br />
 
@@ -265,7 +265,7 @@
                                                           new SelectListItem { Text = "Automatski", Value="Automatski" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems4, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems4, "Value", "Text"), new { @class = "form-control", @onchange = "mjenjac(this.value)" })
 
 
                                         <br />
@@ -277,7 +277,7 @@
                                                           new SelectListItem { Text = "NE", Value="Ne" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems5, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems5, "Value", "Text"), new { @class = "form-control", @onchange = "klima(this.value)" })
 
                                         <br />
                                         <label style="font-family: Georgia;">Gorivo</label>
@@ -289,7 +289,7 @@
                                                           new SelectListItem { Text = "Plin", Value="P" }
                                                     };
                                         }
-                                        @Html.DropDownList("Automobili", new SelectList(listItems6, "Value", "Text"), new { @class = "form-control" })
+                                        @Html.DropDownList("Automobili", new SelectList(listItems6, "Value", "Text"), new { @class = "form-control", @onchange = "gorivo(this.value)" })
 
                                     </div>
                                 </div>
@@ -311,13 +311,19 @@
                                             </div>
                                             <div class="col-sm-4" style="margin-left:10px">
                                                 </br>
-                                                <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">        Vrsta goriva: benzin</span></br>
-                                                <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">        3x broj prtljaga</span></br>
-                                                <i class="fa fa-user"></i><span style="font-family: 'Georgia'">        4x broj osoba</span></br>
-                                                <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        7 l/100km</span></br>
-                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Transmisija: Manuelna</span></br>
-                                                <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
-                                            </div>
+
+                                                <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">         Vrsta goriva: <span style="font-family: 'Georgia'" id="gorivo1"></span></span> </br>
+                                                <i class="fa fa-user"></i><span style="font-family: 'Georgia'">
+                                                    Broj sjedista: <span style="font-family: 'Georgia'" id="brojSjedista1"></h4> </span></br>
+                                                    <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Broj vrata: <span id="brojVrata1"></span></span></br>
+                                                    <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Tip automobila: <span id="tipAutomobila1"></span></span></br>
+                                                    <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Marka automobila: <span id="markaAutomobila1"></span></span></br>
+                                                    <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Mjenjac: <span id="mjenjac1"></span></span></br>
+                                                    <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Klima: <span id="klima1"></span></span></br>
+                                                    <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        7 l/100km</span></br>
+                                                    <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">   Broj prtljaga: 4x</span></br>
+                                                    <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
+</div>
                                             <div class="col-sm-3 control-label" style="margin-left:3px">
                                                 <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:0px; font-family: 'Georgia'"
                                                         onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");">
@@ -338,13 +344,19 @@
                                         </div>
                                         <div class="col-sm-4" style="margin-left:10px">
                                             </br>
-                                            <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">        Vrsta goriva: benzin</span></br>
-                                            <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">        4x broj prtljaga</span></br>
-                                            <i class="fa fa-user"></i><span style="font-family: 'Georgia'">        4x broj osoba</span></br>
-                                            <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        6,5 l/100km</span></br>
-                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Transmisija: Manuelna</span></br>
-                                            <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
-                                        </div>
+                                            <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">         Vrsta goriva: <span style="font-family: 'Georgia'" id="gorivo2"></span></span> </br>
+                                            <i class="fa fa-user"></i><span style="font-family: 'Georgia'">
+                                                Broj sjedista: <span style="font-family: 'Georgia'" id="brojSjedista2"></h4> </span></br>
+                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Broj vrata: <span id="brojVrata2"></span></span></br>
+                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Tip automobila: <span id="tipAutomobila2"></span></span></br>
+                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Marka automobila: <span id="markaAutomobila2"></span></span></br>
+                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Mjenjac: <span id="mjenjac2"></span></span></br>
+                                                <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Klima: <span id="klima2"></span></span></br>
+
+                                                <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        6,5 l/100km</span></br>
+                                                <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">   Broj prtljaga: 4x</span></br>
+                                                <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
+</div>
                                         <div class="col-sm-3 control-label" style="margin-left:3px">
                                             <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-bottom:10px; margin-top:85px; margin-right:0px; font-family:'Georgia'"
                                                     onclick="@("window.location.href='" + @Url.Action("Rezervisi", "home") + "'");">
@@ -363,11 +375,15 @@
                                         </div>
                                         <div class="col-sm-4" style="margin-left:10px">
                                             </br>
-                                            <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">        Vrsta goriva: dizel</span></br>
-                                            <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">        4x broj prtljaga</span></br>
-                                            <i class="fa fa-user"></i><span style="font-family: 'Georgia'">        5x broj osoba</span></br>
+                                            <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">         Vrsta goriva: <span style="font-family: 'Georgia'" id="gorivo3"></span></span> </br>
+                                            <i class="fa fa-user"></i><span style="font-family: 'Georgia'">         Broj sjedista: <span style="font-family: 'Georgia'" id="brojSjedista3"></h4> </span></br>
+                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Broj vrata: <span id="brojVrata3"></span></span></br>
+                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Tip automobila: <span id="tipAutomobila3"></span></span></br>
+                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Marka automobila: <span id="markaAutomobila3"></span></span></br>
+                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Mjenjac: <span id="mjenjac3"></span></span></br>
+                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Klima: <span id="klima3"></span></span></br>
                                             <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        5 l/100km</span></br>
-                                            <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Transmisija: Manuelna</span></br>
+                                            <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">   Broj prtljaga: 4x</span></br>
                                             <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
                                         </div>
                                         <div class="col-sm-3 control-label" style="margin-left:3px">
@@ -508,7 +524,117 @@
                 }
                 else if (valueDate && valueDate1 && valueHour && valueHour1) {
 
-                    $("#dostupnaVozila").toggle();
+                    markaAutomobila1.innerHTML = sessionStorage.getItem('marka');
+                    tipAutomobila1.innerHTML = sessionStorage.getItem('tip');
+                    brojSjedista1.innerHTML = sessionStorage.getItem('brojSjedista');
+                    brojVrata1.innerHTML = sessionStorage.getItem('brojVrata');
+                    mjenjac1.innerHTML = sessionStorage.getItem('mjenjac');
+                    klima1.innerHTML = sessionStorage.getItem('klima');
+                    gorivo1.innerHTML = sessionStorage.getItem('gorivo');
+
+                    if (sessionStorage.getItem('marka') == null) {
+                        markaAutomobila1.innerHTML = "BMW";
+                    }
+
+                    if (sessionStorage.getItem('tip') == null) {
+                        tipAutomobila1.innerHTML = "Mali automobil";
+                    }
+
+                    if (sessionStorage.getItem('brojSjedista') == null) {
+                        brojSjedista1.innerHTML = "2";
+                    }
+
+                    if (sessionStorage.getItem('brojVrata') == null) {
+                        brojVrata1.innerHTML = "3";
+                    }
+
+                    if (sessionStorage.getItem('mjenjac') == null) {
+                        mjenjac1.innerHTML = "Manuelna";
+                    }
+
+
+                    if (sessionStorage.getItem('klima') == null) {
+                        klima1.innerHTML = "DA";
+                    }
+
+                    if (sessionStorage.getItem('gorivo') == null) {
+                        gorivo1.innerHTML = "Dizel";
+                    }
+
+                    markaAutomobila2.innerHTML = sessionStorage.getItem('marka');
+                    tipAutomobila2.innerHTML = sessionStorage.getItem('tip');
+                    brojSjedista2.innerHTML = sessionStorage.getItem('brojSjedista');
+                    brojVrata2.innerHTML = sessionStorage.getItem('brojVrata');
+                    mjenjac2.innerHTML = sessionStorage.getItem('mjenjac');
+                    klima2.innerHTML = sessionStorage.getItem('klima');
+                    gorivo2.innerHTML = sessionStorage.getItem('gorivo');
+
+                    if (sessionStorage.getItem('marka') == null) {
+                        markaAutomobila2.innerHTML = "BMW";
+                    }
+
+                    if (sessionStorage.getItem('tip') == null) {
+                        tipAutomobila2.innerHTML = "Mali automobil";
+                    }
+
+                    if (sessionStorage.getItem('brojSjedista') == null) {
+                        brojSjedista2.innerHTML = "2";
+                    }
+
+                    if (sessionStorage.getItem('brojVrata') == null) {
+                        brojVrata2.innerHTML = "3";
+                    }
+
+                    if (sessionStorage.getItem('mjenjac') == null) {
+                        mjenjac2.innerHTML = "Manuelna";
+                    }
+
+
+                    if (sessionStorage.getItem('klima') == null) {
+                        klima2.innerHTML = "DA";
+                    }
+
+                    if (sessionStorage.getItem('gorivo') == null) {
+                        gorivo2.innerHTML = "Dizel";
+                    }
+
+                    markaAutomobila3.innerHTML = sessionStorage.getItem('marka');
+                    tipAutomobila3.innerHTML = sessionStorage.getItem('tip');
+                    brojSjedista3.innerHTML = sessionStorage.getItem('brojSjedista');
+                    brojVrata3.innerHTML = sessionStorage.getItem('brojVrata');
+                    mjenjac3.innerHTML = sessionStorage.getItem('mjenjac');
+                    klima3.innerHTML = sessionStorage.getItem('klima');
+                    gorivo3.innerHTML = sessionStorage.getItem('gorivo');
+
+                    if (sessionStorage.getItem('marka') == null) {
+                        markaAutomobila3.innerHTML = "BMW";
+                    }
+
+                    if (sessionStorage.getItem('tip') == null) {
+                        tipAutomobila3.innerHTML = "Mali automobil";
+                    }
+
+                    if (sessionStorage.getItem('brojSjedista') == null) {
+                        brojSjedista3.innerHTML = "2";
+                    }
+
+                    if (sessionStorage.getItem('brojVrata') == null) {
+                        brojVrata3.innerHTML = "3";
+                    }
+
+                    if (sessionStorage.getItem('mjenjac') == null) {
+                        mjenjac3.innerHTML = "Manuelna";
+                    }
+
+
+                    if (sessionStorage.getItem('klima') == null) {
+                        klima3.innerHTML = "DA";
+                    }
+
+                    if (sessionStorage.getItem('gorivo') == null) {
+                        gorivo3.innerHTML = "Dizel";
+                    }
+                    $("#dostupnaVozila").show();
                     document.getElementById("btnPretrazi").disabled = true;
 
                 }
@@ -634,6 +760,48 @@
         }
     }
 
+    function markaAutomobila(marka) {
+
+        sessionStorage.setItem('marka', marka);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function tipAutomobila(tip) {
+
+        sessionStorage.setItem('tip', tip);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function brojSjedista(broj) {
+
+        sessionStorage.setItem('brojSjedista', broj);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function brojVrata(vrata) {
+
+        sessionStorage.setItem('brojVrata', vrata);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function mjenjac(mjenjacForm) {
+
+        sessionStorage.setItem('mjenjac', mjenjacForm);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function klima(klima) {
+
+        sessionStorage.setItem('klima', klima);
+        document.getElementById("btnPretrazi").disabled = false;
+    }
+
+    function gorivo(gorivoForm) {
+
+        sessionStorage.setItem('gorivo', gorivoForm);
+        document.getElementById("btnPretrazi").disabled = false;
+       
+    }
 </script>
 
 }

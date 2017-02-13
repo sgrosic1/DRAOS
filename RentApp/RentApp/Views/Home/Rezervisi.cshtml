@@ -32,16 +32,16 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="Content/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
-<body>
+<body onload="popuni()">
     <div class="wrapper">
         <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
 
             <!--
 
-            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-            Tip 2: you can also add an image using data-image tag
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
 
-        -->
+            -->
 
             <div class="sidebar-wrapper">
                 <div class="logo">
@@ -138,12 +138,19 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     </br>
-                                                    <i class="fa fa-tint"></i><span style="color: #9A9A9A; font-family: Georgia;">        Vrsta goriva: benzin</span></br>
-                                                    <i class="fa fa-briefcase"></i><span style="color: #9A9A9A; font-family: Georgia;">        3x broj prtljaga</span></br>
-                                                    <i class="fa fa-user"></i><span style="color: #9A9A9A; font-family: Georgia;">        5x broj osoba</span></br>
-                                                    <i class="fa fa-wrench"></i><span style="color: #9A9A9A; font-family: Georgia;">        7 l/100km</span></br>
-                                                    <i class="fa fa-share"></i><span style="color: #9A9A9A; font-family: Georgia;">        Transmisija: Manuelna</span>
-                                                </div>
+                                                    <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">         Vrsta goriva: <span style="font-family: 'Georgia'" id="gorivo1"></span></span> </br>
+                                                    <i class="fa fa-user"></i><span style="font-family: 'Georgia'">
+                                                        Broj sjedista: <span style="font-family: 'Georgia'" id="brojSjedista1"></h4> </span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Broj vrata: <span id="brojVrata1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Tip automobila: <span id="tipAutomobila1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Marka automobila: <span id="markaAutomobila1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Mjenjac: <span id="mjenjac1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Klima: <span id="klima1"></span></span></br>
+                                                        <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        7 l/100km</span></br>
+                                                        <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">   Broj prtljaga: 4x</span></br>
+                                                        <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
+
+</div>
                                                 <div class="col-sm-4">
                                                     </br>
 
@@ -651,6 +658,45 @@
                     sessionStorage.setItem('cijena', brojDana * 50);
                     cijena.innerHTML = sessionStorage.getItem('cijena');
                 }
+            }
+        }
+
+        function popuni() {
+            markaAutomobila1.innerHTML = sessionStorage.getItem('marka');
+            tipAutomobila1.innerHTML = sessionStorage.getItem('tip');
+            brojSjedista1.innerHTML = sessionStorage.getItem('brojSjedista');
+            brojVrata1.innerHTML = sessionStorage.getItem('brojVrata');
+            mjenjac1.innerHTML = sessionStorage.getItem('mjenjac');
+            klima1.innerHTML = sessionStorage.getItem('klima');
+            gorivo1.innerHTML = sessionStorage.getItem('gorivo');
+
+            if (sessionStorage.getItem('marka') == null) {
+                markaAutomobila1.innerHTML = "BMW";
+            }
+
+            if (sessionStorage.getItem('tip') == null) {
+                tipAutomobila1.innerHTML = "Mali automobil";
+            }
+
+            if (sessionStorage.getItem('brojSjedista') == null) {
+                brojSjedista1.innerHTML = "2";
+            }
+
+            if (sessionStorage.getItem('brojVrata') == null) {
+                brojVrata1.innerHTML = "3";
+            }
+
+            if (sessionStorage.getItem('mjenjac') == null) {
+                mjenjac1.innerHTML = "Manuelna";
+            }
+
+
+            if (sessionStorage.getItem('klima') == null) {
+                klima1.innerHTML = "DA";
+            }
+
+            if (sessionStorage.getItem('gorivo') == null) {
+                gorivo1.innerHTML = "Dizel";
             }
         }
     </script>
