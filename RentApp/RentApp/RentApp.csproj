@@ -292,6 +292,9 @@
     <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\demo.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <None Include="Properties\PublishProfiles\rentacardraos - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rentacardraos - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\RentApp20170215101853 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -310,7 +313,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\light-bootstrap-dashboard.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -348,7 +353,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Rezervisi.cshtml" />
     <Content Include="Views\Home\Pretraga.cshtml" />
     <Content Include="Views\Home\RezervacijaPretraga.cshtml" />

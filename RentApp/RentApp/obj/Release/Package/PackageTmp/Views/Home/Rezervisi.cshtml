@@ -1,0 +1,703 @@
+﻿@{
+    ViewBag.Title = "Rezervisi";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="Content/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="Content/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="Content/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="Content/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="Content/pe-icon-7-stroke.css" rel="stylesheet" />
+</head>
+<body onload="popuni()">
+    <div class="wrapper">
+        <div class="sidebar" data-color="azure" data-image="Content/img/sidebar-1.jpg" style="background-repeat:repeat; margin-bottom: -99999px; padding-bottom: 99999px; overflow-y: hidden">
+
+            <!--
+
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
+
+            -->
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a class="simple-text" style="font-family:'Georgia'">
+                        Rent a car
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-home"></i>
+                            <p style="font-family:'Georgia'">Home</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="@Url.Action("RezervacijaPretraga", "Home")">
+                            <i class="fa fa-list-ul"></i>
+                            <p style="font-family:'Georgia'">Rezervacija</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Uvjeti", "Home")">
+                            <i class="fa fa-globe"></i>
+                            <p style="font-family:'Georgia'">Opći uvjeti</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contact", "Home")">
+                            <i class="fa fa-user"></i>
+                            <p style="font-family:'Georgia'">Kontakt</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Pitanja", "Home")">
+                            <i class="fa fa-question"></i>
+                            <p style="font-family:'Georgia'">Najčešća pitanja</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" style="font-family:'Georgia'">Rezervacija</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family:'Georgia'">
+                                    <i class="fa fa-search"></i>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Home", "Home")">Pretraga vozila</a></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("RezervacijaPretraga", "Home")">Rezervacija</a></li>
+                                    <li class="divider"></li>
+                                    <li><a style="font-family:'Georgia'" href="@Url.Action("Contact", "Home")">Kontakt</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="content">
+                                    <form>
+                                        <div style="border-style: solid; border-color: #9A9A9A; border-width: 1px;">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <img src="~/Content/img/audi3.jpg" class="img-rounded" width="204" height="136" align="left" style="margin-left:5px; margin-bottom:5px;" />
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    </br>
+                                                    <i class="fa fa-tint"></i><span style="font-family: 'Georgia'">         Vrsta goriva: <span style="font-family: 'Georgia'" id="gorivo1"></span></span> </br>
+                                                    <i class="fa fa-user"></i><span style="font-family: 'Georgia'">
+                                                        Broj sjedista: <span style="font-family: 'Georgia'" id="brojSjedista1"></h4> </span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Broj vrata: <span id="brojVrata1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Tip automobila: <span id="tipAutomobila1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Marka automobila: <span id="markaAutomobila1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Mjenjac: <span id="mjenjac1"></span></span></br>
+                                                        <i class="fa fa-share"></i><span style="font-family: 'Georgia'">        Klima: <span id="klima1"></span></span></br>
+                                                        <i class="fa fa-wrench"></i><span style="font-family: 'Georgia'">        7 l/100km</span></br>
+                                                        <i class="fa fa-briefcase"></i><span style="font-family: 'Georgia'">   Broj prtljaga: 4x</span></br>
+                                                        <i class="fa fa-question" style="font-weight:bold"></i><span style="font-family: 'Georgia'">        Cijena na dan: 50KM</span>
+
+</div>
+                                                <div class="col-sm-4">
+                                                    </br>
+
+                                                    <input id="gps" type="checkbox" value="" data-toggle="checkbox">
+                                                    <label style="font-family:Georgia">GPS - 15KM</label>
+                                                    <br />
+                                                    <input id="sjedalica" type="checkbox" value="" data-toggle="checkbox">
+                                                    <label style="font-family:Georgia">Dječija sjedalica - 10KM</label>
+                                                    <br />
+                                                    <input id="oprema" type="checkbox" value="" data-toggle="checkbox">
+                                                    <label style="font-family:Georgia">Zimska oprema - 20KM</label>
+
+                                                    <h4><b style="font-family:Georgia">Cijena na dan: 50 KM</b></h4>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title" style="font-family:Georgia">Unesite podatke</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Ime</label>
+                                                    <input type="text" id="ime" class="form-control" onkeyup="validateIme(this.value)">
+                                                    <div class="text-right" id="error0" style="color:#FF0000"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Prezime</label>
+                                                    <input type="text" id="prezime" class="form-control" onkeyup="validatePrezime(this.value)">
+                                                    <div class="text-right" id="error1" style="color:#FF0000"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <input type="text" id="kompanija" class="form-control" style="font-family:Georgia" placeholder="Company" onkeyup="validateKompanija(this.value)">
+                                                    <div class="text-right" id="error2" style="color:#FF0000"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" id="brojTelefona" class="form-control" style="font-family:Georgia" placeholder="Broj telefona" onkeyup="validateBrojTelefona(this.value)">
+                                                    <div class="text-right" id="error3" style="color:#FF0000"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="email" id="email" class="form-control" style="font-family:Georgia" placeholder="Email adresa" onkeyup="validateEmail(this.value)">
+                                                    <div class="text-right" id="error4" style="color:#FF0000"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" id="adresa" class="form-control" style="font-family:Georgia" placeholder="Adresa stanovanja">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" id="grad" class="form-control" style="font-family:Georgia" placeholder="Grad" onkeyup="validateGrad(this.value)">
+                                                    <div class="text-right" id="error5" style="color: #FF0000; font-family: Georgia;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" id="drzava" class="form-control" style="font-family:Georgia" placeholder="Država">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="number" id="ptt" class="form-control" style="font-family:Georgia" placeholder="Poštanski broj">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Broj vozačke dozvole</label>
+                                                    <input type="text" id="brojVozacke" class="form-control" style="font-family:Georgia" onkeyup="validateBrojVozacke(this.value)">
+                                                    <div class="text-right" id="error6" style="color: #FF0000; font-family: Georgia;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Datum polaska</label>
+                                                    <input id="polazak" type="date" class="form-control" style="font-family:Georgia" placeholder="Datum polaska" onchange="validatePolazak()">
+                                                    <div class="text-right" id="error7" style="color: #FF0000; font-family: Georgia;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Datum dolaska</label>
+                                                    <input id="dolazak" type="date" class="form-control" style="font-family:Georgia" value="Datum dolaska" onchange="validateDolazak()">
+                                                    <div class="text-right" id="error8" style="color: #FF0000; font-family: Georgia;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-family:Georgia">Komentar</label>
+                                                    <textarea id="komentar" rows="5" class="form-control" style="font-family:Georgia" placeholder="Ovdje možete ostaviti svoj komentar"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h4 style="font-family:Georgia; font-weight:bold">Ukupna cijena za odabrani period: </h4><h5 style="font-family:Georgia; color:red; font-weight:bold; font-size:20px" id="cijena"></h5>
+
+                                        <h4><b></b></h4>
+                                        @*<button type="submit" class="btn btn-info btn-fill pull-right">Rezerviši</button>*@
+                                        @*<input type="button" id="btnRezervisi" style="font-family:Georgia" class="btn btn-info btn-fill pull-right" value="Rezerviši">*@
+
+                                        <button id="btnRezervisi" type="button" style="background-color: #1DC7EA; border: 2px solid #FA8072; float: right; margin-right: 10px; font-family: 'Georgia';" class=" btn btn-info btn-fill" data-toggle="modal" data-target="#myModal">Rezerviši</button> <!-- onclick="show_alert()"-->
+
+                                        <div id="myModal" class="modal" role="dialog" style="position:fixed; width:100%; height:100%;">
+                                            <div class="modal-dialog" style="width:1000px;height:500px;">
+                                                <div class="modal-content" style="width:400px;height:150px;">
+                                                    <!-- dialog body -->
+                                                    <div class="modal-body">
+                                                        <i class="fa fa-certificate" aria-hidden="true"></i> Uspješno ste rezervisali vozilo! Vaš kod za pretragu ili otkazivanje rezervacije je <b>1234</b>!
+                                                    </div>
+                                                    <!-- dialog buttons -->
+                                                    <div class="modal-footer">
+                                                        <!--button type="button" class="btn btn-primary" id="modalOK" onclick="hide_modal()">OK</!--button-->
+
+                                                        <a class="btn btn-primary" href="@Url.Action("RezervacijaPretraga", "Home")" style="background-color: #1DC7EA; border: 2px solid #FA8072; ">OK</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+
+                    <p class="copyright pull-right">
+                        &copy; 2016 <a style="font-family:Georgia">Dženana Bričić, Sabina Grošić, Aida Hasović</a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="Scripts/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Charts Plugin -->
+<script src="Scripts/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="Scripts/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="Scripts/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="Scripts/demo.js"></script>
+
+</html>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    function show_modal() {
+        $("#myModal").show();
+    }
+   
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnRezervisi").click(function () {
+
+                var ime = document.getElementById('ime').value;
+                var prezime = document.getElementById('prezime').value;
+                var kompanija = document.getElementById('kompanija').value;
+                var brojTelefona = document.getElementById('brojTelefona').value
+                var email = document.getElementById('email').value;
+                var grad = document.getElementById('grad').value;
+                var adresa = document.getElementById('adresa').value;
+                var brojVozacke = document.getElementById('brojVozacke').value;
+                var polazak = document.getElementById('polazak').value;
+                var dolazak = document.getElementById('dolazak').value;
+                var drzava = document.getElementById('drzava').value;
+                var ptt = document.getElementById('ptt').value;
+                var ptt = document.getElementById('komentar').value;
+
+                var gps = document.getElementById('gps').checked;
+                var sjedalica = document.getElementById('sjedalica').checked;
+                var oprema = document.getElementById('oprema').checked;
+                
+                if (!ime || !prezime || !kompanija || !brojTelefona || !email || !grad || !brojVozacke || !polazak || !dolazak) {
+                    validation(ime, prezime, kompanija, brojTelefona, email, grad, brojVozacke, polazak, dolazak);
+
+                }
+                else if (polazak > dolazak) {
+                    document.getElementById('dolazak').style.borderColor = "red";
+                    document.getElementById("error8").innerHTML = "Datum dolaska ne moze biti manji od datuma polaska!";
+                    flag = 1;
+                }
+                else {
+                    sessionStorage.setItem('ime',document.getElementById('ime').value);
+                    sessionStorage.setItem('prezime', document.getElementById('prezime').value);
+                    sessionStorage.setItem('kompanija', document.getElementById('kompanija').value);
+                    sessionStorage.setItem('brojTelefona', document.getElementById('brojTelefona').value);
+                    sessionStorage.setItem('email',document.getElementById('email').value);
+                    sessionStorage.setItem('grad', document.getElementById('grad').value);
+                    sessionStorage.setItem('brojVozacke', document.getElementById('brojVozacke').value);
+                    sessionStorage.setItem('polazak', document.getElementById('polazak').value);
+                    sessionStorage.setItem('dolazak', document.getElementById('dolazak').value);
+                    sessionStorage.setItem('drzava', document.getElementById('drzava').value);
+                    sessionStorage.setItem('adresa', document.getElementById('adresa').value);
+                    sessionStorage.setItem('ptt', document.getElementById('ptt').value);
+                    sessionStorage.setItem('komentar', document.getElementById('komentar').value);
+
+                    sessionStorage.setItem('gps', document.getElementById('gps').checked);
+                    sessionStorage.setItem('sjedalica', document.getElementById('sjedalica').checked);
+                    sessionStorage.setItem('oprema', document.getElementById('oprema').checked);
+                    
+                    show_modal();
+                }
+
+
+            });
+        });
+
+        function validation(ime, prezime, kompanija, brojTelefona, email, grad, brojVozacke, polazak, dolazak) {
+
+            document.getElementById("btnRezervisi").disabled = true;
+            var flag = 0;
+
+            if (!ime) {
+                document.getElementById('ime').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Ime ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('ime').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!prezime) {
+                document.getElementById('prezime').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Prezime ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('prezime').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!kompanija) {
+                document.getElementById('kompanija').style.borderColor = "red";
+                document.getElementById("error2").innerHTML = "Kompanija ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('kompanija').style.borderColor = "#ccc";
+                document.getElementById("error2").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!brojTelefona) {
+                document.getElementById('brojTelefona').style.borderColor = "red";
+                document.getElementById("error3").innerHTML = "Broj telefona ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('brojTelefona').style.borderColor = "#ccc";
+                document.getElementById("error3").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!email) {
+                document.getElementById('email').style.borderColor = "red";
+                document.getElementById("error4").innerHTML = "Email ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('email').style.borderColor = "#ccc";
+                document.getElementById("error4").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!grad) {
+                document.getElementById('grad').style.borderColor = "red";
+                document.getElementById("error5").innerHTML = "Grad ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('grad').style.borderColor = "#ccc";
+                document.getElementById("error5").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!brojVozacke) {
+                document.getElementById('brojVozacke').style.borderColor = "red";
+                document.getElementById("error6").innerHTML = "Broj vozačke ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('brojVozacke').style.borderColor = "#ccc";
+                document.getElementById("error6").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!polazak) {
+                document.getElementById('polazak').style.borderColor = "red";
+                document.getElementById("error7").innerHTML = "Datum polaska ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('polazak').style.borderColor = "#ccc";
+                document.getElementById("error7").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+            if (!dolazak) {
+                document.getElementById('dolazak').style.borderColor = "red";
+                document.getElementById("error8").innerHTML = "Datum dolaska ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('dolazak').style.borderColor = "#ccc";
+                document.getElementById("error8").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+
+        }
+
+        function validateIme(ime) {
+            if (!ime) {
+                document.getElementById('ime').style.borderColor = "red";
+                document.getElementById("error0").innerHTML = "Ime ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('ime').style.borderColor = "#ccc";
+                document.getElementById("error0").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+        function validatePrezime(prezime) {
+            if (!prezime) {
+                document.getElementById('prezime').style.borderColor = "red";
+                document.getElementById("error1").innerHTML = "Prezime ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('prezime').style.borderColor = "#ccc";
+                document.getElementById("error1").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+        function validateKompanija(kompanija) {
+            if (!kompanija) {
+                document.getElementById('kompanija').style.borderColor = "red";
+                document.getElementById("error2").innerHTML = "Kompanija ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('kompanija').style.borderColor = "#ccc";
+                document.getElementById("error2").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+        function validateBrojTelefona(brojTelefona) {
+            if (!brojTelefona) {
+                document.getElementById('brojTelefona').style.borderColor = "red";
+                document.getElementById("error3").innerHTML = "Broj telefona ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('brojTelefona').style.borderColor = "#ccc";
+                document.getElementById("error3").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+
+        function validateEmail(email) {
+            if (!email) {
+                document.getElementById('email').style.borderColor = "red";
+                document.getElementById("error4").innerHTML = "Email ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('email').style.borderColor = "#ccc";
+                document.getElementById("error4").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+
+        function validateGrad(grad) {
+            if (!grad) {
+                document.getElementById('grad').style.borderColor = "red";
+                document.getElementById("error5").innerHTML = "Grad ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('grad').style.borderColor = "#ccc";
+                document.getElementById("error5").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+        function validateBrojVozacke(brojVozacke) {
+            if (!brojVozacke) {
+                document.getElementById('brojVozacke').style.borderColor = "red";
+                document.getElementById("error6").innerHTML = "Broj vozačke ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('brojVozacke').style.borderColor = "#ccc";
+                document.getElementById("error6").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+
+        function validatePolazak() {
+            var polazak = document.getElementById('polazak');
+           
+            if (!polazak.value) {
+                document.getElementById('polazak').style.borderColor = "red";
+                document.getElementById("error7").innerHTML = "Datum polaska ne može biti prazno polje!";
+                flag = 1;
+            }
+            else {
+                document.getElementById('polazak').style.borderColor = "#ccc";
+                document.getElementById("error7").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+            }
+        }
+        function validateDolazak() {
+            var dolazak = document.getElementById('dolazak').value;
+            var polazak = document.getElementById('polazak').value;
+            if (!dolazak) {
+                document.getElementById('dolazak').style.borderColor = "red";
+                document.getElementById("error8").innerHTML = "Datum dolaska ne može biti prazno polje!";
+                flag = 1;
+            }
+            else if (polazak && polazak > dolazak)
+            {
+                document.getElementById('dolazak').style.borderColor = "red";
+                    document.getElementById("error8").innerHTML = "Datum dolaska ne može biti manji od datuma polaska!";
+                    flag = 1;
+              
+            }
+            else {
+                document.getElementById('dolazak').style.borderColor = "#ccc";
+                document.getElementById("error8").innerHTML = "";
+                document.getElementById("btnRezervisi").disabled = false;
+
+                if (polazak) {
+                    
+                    var minutes = 1000 * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                   
+                    var dolazakDatum = new Date(dolazak);
+                    var polazakDatum = new Date(polazak);
+                   
+                   
+                    
+                    var brojDana  = Math.round((dolazakDatum - polazakDatum) / days);
+                    if (brojDana == 0) brojDana = 1;
+                    sessionStorage.setItem('cijena', brojDana * 50);
+                    cijena.innerHTML = sessionStorage.getItem('cijena');
+                }
+            }
+        }
+
+        function popuni() {
+            markaAutomobila1.innerHTML = sessionStorage.getItem('marka');
+            tipAutomobila1.innerHTML = sessionStorage.getItem('tip');
+            brojSjedista1.innerHTML = sessionStorage.getItem('brojSjedista');
+            brojVrata1.innerHTML = sessionStorage.getItem('brojVrata');
+            mjenjac1.innerHTML = sessionStorage.getItem('mjenjac');
+            klima1.innerHTML = sessionStorage.getItem('klima');
+            gorivo1.innerHTML = sessionStorage.getItem('gorivo');
+
+            if (sessionStorage.getItem('marka') == null) {
+                markaAutomobila1.innerHTML = "BMW";
+            }
+
+            if (sessionStorage.getItem('tip') == null) {
+                tipAutomobila1.innerHTML = "Mali automobil";
+            }
+
+            if (sessionStorage.getItem('brojSjedista') == null) {
+                brojSjedista1.innerHTML = "2";
+            }
+
+            if (sessionStorage.getItem('brojVrata') == null) {
+                brojVrata1.innerHTML = "3";
+            }
+
+            if (sessionStorage.getItem('mjenjac') == null) {
+                mjenjac1.innerHTML = "Manuelna";
+            }
+
+
+            if (sessionStorage.getItem('klima') == null) {
+                klima1.innerHTML = "DA";
+            }
+
+            if (sessionStorage.getItem('gorivo') == null) {
+                gorivo1.innerHTML = "Dizel";
+            }
+        }
+    </script>
+ }
